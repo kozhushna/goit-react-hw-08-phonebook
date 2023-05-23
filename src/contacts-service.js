@@ -28,6 +28,12 @@ export const logOutUser = async () => {
   return response.data;
 };
 
+export const getCurrentUser = async persistedToken => {
+  setAuthHeader(persistedToken);
+  const response = await axios.get('/users/current');
+  return response.data;
+};
+
 export const getContacts = async () => {
   const response = await axios.get('/contacts');
   return response.data;

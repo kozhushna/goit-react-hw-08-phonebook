@@ -5,8 +5,8 @@ import {
   selectIsLoading,
   selectError,
   selectVisibleContacts,
-} from '../../redux/contacts';
-import { fetchContacts } from '../../redux/contacts';
+} from '../../redux/contacts/selectors';
+import { fetchContacts } from '../../redux/contacts/operations';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
