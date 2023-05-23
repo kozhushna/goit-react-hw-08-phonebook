@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from '../../redux/contacts';
+import { addContact } from '../../redux/contacts';
 
 import './ContactForm.css';
 

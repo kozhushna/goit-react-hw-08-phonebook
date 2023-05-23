@@ -1,6 +1,32 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://64664418ba7110b6639c25a1.mockapi.io/api/v1';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = '';
+};
+
+export const registerUser = async () => {
+  const response = await axios.post('/users/signup');
+  setAuthHeader(response.data.token);
+  return response.data;
+};
+
+export const loginUser = async () => {
+  const response = await axios.post('/users/login');
+  setAuthHeader(response.data.token);
+  return response.data;
+};
+
+export const logOutUser = async () => {
+  const response = await axios.post('/users/logout');
+  clearAuthHeader();
+  return response.data;
+};
 
 export const getContacts = async () => {
   const response = await axios.get('/contacts');
@@ -12,7 +38,7 @@ export const addNewContact = async ({ name, number }) => {
   return response.data;
 };
 
-export const deleteContactById = async id => {
-  const response = await axios.delete(`/contacts/${id}`);
+export const deleteContactById = async contactId => {
+  const response = await axios.delete(`/contacts/${contactId}`);
   return response.data;
 };
