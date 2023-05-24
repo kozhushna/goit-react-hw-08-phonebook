@@ -10,14 +10,14 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const registerUser = async () => {
-  const response = await axios.post('/users/signup');
+export const registerUser = async credentials => {
+  const response = await axios.post('/users/signup', credentials);
   setAuthHeader(response.data.token);
   return response.data;
 };
 
-export const loginUser = async () => {
-  const response = await axios.post('/users/login');
+export const loginUser = async credentials => {
+  const response = await axios.post('/users/login', credentials);
   setAuthHeader(response.data.token);
   return response.data;
 };
