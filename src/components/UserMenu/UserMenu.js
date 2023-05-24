@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { logOut } from '../../redux/auth/operations';
 import { useAuth } from '../../hooks/UseAuth';
 
@@ -8,10 +9,16 @@ export const UserMenu = () => {
 
   return (
     <div>
-      <p>Welcome, {user.name}</p>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <p>Welcome, {user.email}</p>
+      <Link to={'/'} onClick={() => dispatch(logOut())}>
         Logout
-      </button>
+      </Link>
     </div>
+    // <div>
+    //   <p>Welcome, {user.name}</p>
+    //   <button type="button" onClick={() => dispatch(logOut())}>
+    //     Logout
+    //   </button>
+    // </div>
   );
 };

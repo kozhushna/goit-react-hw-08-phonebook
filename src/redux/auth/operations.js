@@ -10,8 +10,6 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      console.log(credentials);
-
       return await registerUser(credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -42,8 +40,6 @@ export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    console.log(state);
-
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
