@@ -1,8 +1,15 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import { useAuth } from '../../hooks/UseAuth';
+import { clearError } from '../../redux/auth/slice';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const { error } = useAuth();
+  if (error) {
+    alert(error);
+    dispatch(clearError());
+  }
 
   const handleSubmit = e => {
     e.preventDefault();
