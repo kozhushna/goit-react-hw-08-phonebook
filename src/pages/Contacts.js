@@ -1,3 +1,7 @@
+import * as React from 'react';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ContactList } from 'components/ContactList';
@@ -15,15 +19,26 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <>
-      <div className="container">
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
-        <ContactList />
-      </div>
-      <div>{isLoading && 'Request in progress...'}</div>
-    </>
+    <React.Fragment>
+      <CssBaseline />
+      <Container maxWidth="sm">
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <h1>Phonebook</h1>
+          <ContactForm />
+          <h2>Contacts</h2>
+          <Filter />
+          <ContactList />
+
+          <div>{isLoading && 'Request in progress...'}</div>
+        </Box>
+      </Container>
+    </React.Fragment>
   );
 }
