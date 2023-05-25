@@ -10,8 +10,6 @@ import { useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
 
-import './ContactForm.css';
-
 const defaultTheme = createTheme();
 
 function ContactForm() {
@@ -41,6 +39,7 @@ function ContactForm() {
         <CssBaseline />
         <Box
           sx={{
+            marginBottom: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
