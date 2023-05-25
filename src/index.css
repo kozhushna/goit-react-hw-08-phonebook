@@ -30,3 +30,16 @@ ol {
   padding-left: 0;
   margin: 0;
 }
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a.active {
+  color: rgb(204, 220, 231);
+}
+
+a:hover,
+a:focus {
+  color: #bdb9da;
+}
