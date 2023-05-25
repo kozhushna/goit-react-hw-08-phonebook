@@ -2,6 +2,7 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import phoneBook from '../images/phone-book.png';
 
 export default function Home() {
   return (
@@ -16,9 +17,8 @@ export default function Home() {
             alignItems: 'center',
           }}
         >
-          <div>
-            <h1>Phonebook welcome page</h1>
-          </div>
+          <h1>Welcome to Phonebook</h1>
+          <img src={phoneBook} alt="Phonebook" title="Phonebook" />
         </Box>
       </Container>
     </React.Fragment>
